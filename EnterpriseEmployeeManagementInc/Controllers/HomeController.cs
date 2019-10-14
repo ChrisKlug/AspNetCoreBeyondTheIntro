@@ -18,7 +18,7 @@ namespace EnterpriseEmployeeManagementInc.Controllers
         [Authorize]
         public async Task<IActionResult> Index()
         {
-            return View(await _employees.All(User.TenantId()));
+            return View(await _employees.All());
         }
     }
 }

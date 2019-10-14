@@ -1,4 +1,5 @@
-﻿using EnterpriseEmployeeManagementInc.Services;
+﻿using EnterpriseEmployeeManagementInc.Infrastructure;
+using EnterpriseEmployeeManagementInc.Services;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -11,7 +12,9 @@ namespace EnterpriseEmployeeManagementInc
     {
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc()
+            services.AddMvc(options => {
+                options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute());
+            })
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
@@ -19,8 +22,12 @@ namespace EnterpriseEmployeeManagementInc
                     options.LoginPath = "/auth/login";
                 });
 
+            services.AddHttpContextAccessor();
+
             services.AddSingleton<IUsers, Users>();
             services.AddSingleton<IEmployees, Employees>();
+
+            services.AddHostedService<ThumbnailGenerator>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
