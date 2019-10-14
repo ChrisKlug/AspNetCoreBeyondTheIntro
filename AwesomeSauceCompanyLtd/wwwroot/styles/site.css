@@ -1,0 +1,20 @@
+﻿body > main {
+    padding-top: 150px;
+}
+
+.employee-card {
+    padding: 0 30px;
+}
+
+.headshot {
+    border-radius: 50%;
+    width: 140px;
+}
+
+.jumbotron {
+    margin-top: -50px;
+}
+
+.jumbotron img {
+    max-width: 300px;
+}

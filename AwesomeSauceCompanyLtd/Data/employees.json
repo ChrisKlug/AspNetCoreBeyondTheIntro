@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "firstName": "Hedy",
+    "lastName": "Lamarr",
+    "bio": "At the begninning of WW1, Hedy and composer George Antheil developed a radio guidance system using frequency-hopping spread spectrum technology. A technique later used in Bluetooth and WiFi.",
+    "imageName": "hedy.jpg"
+  },
+  {
+    "id": 2,
+    "firstName": "Grace",
+    "lastName": "Hopper",
+    "bio": "Grace was a pioneer of computer programming, inventing the first linker. She also popularized the ides of machine-independent programming languages, leading to the development of COBOL.",
+    "imageName": "grace.jpg"
+  },
+  {
+    "id": 3,
+    "firstName": "Margaret",
+    "lastName": "Hamilton",
+    "bio": "Margaret was the director of the Software Engineering Division of the MIT Instrumentation Laboratory, which developed on-board flight software for NASA's Apollo space program.",
+    "imageName": "margaret.jpg"
+  }
+]

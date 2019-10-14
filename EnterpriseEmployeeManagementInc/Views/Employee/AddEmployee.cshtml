@@ -1,0 +1,30 @@
+﻿@model EnterpriseEmployeeManagementInc.Models.AddEmployeeModel
+@{
+    ViewData["Title"] = "Add Employee";
+}
+
+<div class="row">
+    <div class="col-6 offset-3 form">
+        <h3>Add Employee</h3>
+        <form asp-action="Employee" asp-controller="AddEmployee" method="post">
+            @foreach (var key in ViewContext.ModelState.Keys)
+            {
+                <div class="alert alert-danger" role="alert">
+                    @ViewContext.ModelState[key].Errors.First().ErrorMessage
+                </div>
+            }
+            <div class="form-group">
+                <input type="text" class="form-control" asp-for="FirstName" placeholder="First Name *" autofocus />
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" asp-for="LastName" placeholder="Last Name *" />
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" asp-for="Title" placeholder="Title *" />
+            </div>
+            <div class="form-group text-center">
+                <input type="submit" class="btnSubmit" value="Add" />
+            </div>
+        </form>
+    </div>
+</div>

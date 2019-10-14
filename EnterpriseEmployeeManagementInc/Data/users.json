@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "tenant": {
+      "id": 1,
+      "name": "Awesome Sauce Company Ltd"
+    },
+    "username": "Grace",
+    "name": "Grace Hopper",
+    "password": "$2y$12$Ak3vl3y23gITRFT4BAA.jeq1MkbDZHsh.KZGXAjQAGdIC8DoG55QK"
+  },
+  {
+    "id": 2,
+    "tenant": {
+      "id": 1,
+      "name": "Generic Company"
+    },
+    "username": "John",
+    "name": "John Doe",
+    "password": "$2y$12$Ak3vl3y23gITRFT4BAA.jeq1MkbDZHsh.KZGXAjQAGdIC8DoG55QK"
+  }
+]

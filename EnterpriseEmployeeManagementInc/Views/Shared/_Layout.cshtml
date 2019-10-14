@@ -1,0 +1,30 @@
+﻿@using EnterpriseEmployeeManagementInc.Services
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width" />
+    <title>Enterprise Employee Management Inc - @ViewBag.Title
+    </title>
+    <link href="/styles/bootstrap.min.css" rel="stylesheet" />
+    <link href="/styles/site.css" rel="stylesheet" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand navbar-dark fixed-top bg-dark">
+            <a class="navbar-brand mr-auto" href="/">@(User.Identity.IsAuthenticated ? User.FindFirst(CustomClaimTypes.TenantName).Value : "Enterprise Employee Management Inc")</a>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <a asp-controller="Auth" asp-action="Logout" class="btn btn-info">Logout</a>
+            }
+        </nav>
+    </header>
+
+    <main role="main">
+        <div class="container">
+            @RenderBody()
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,19 @@
+﻿@model EnterpriseEmployeeManagementInc.Services.Entities.Employee
+@{
+    ViewData["Title"] = "Upload Profile Picture";
+}
+
+<div class="row">
+    <div class="col-6 offset-3 form">
+        <h3>Upload Profile Picture for @Model.FirstName @Model.LastName</h3>
+        <form asp-action="Upload" asp-controller="ProfilePicture" asp-route-employeeId="@Model.Id" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <input type="file" class="form-control" name="picture" accept="image/png, image/jpeg" />
+            </div>
+            <div class="form-group text-center">
+                <input type="submit" class="btnSubmit" value="Upload" />
+            </div>
+        </form>
+    </div>
+</div>
+

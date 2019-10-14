@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "tenantId": 1,
+    "firstName": "John",
+    "lastName": "Doe",
+    "title": "Dead Weight"
+  },
+  {
+    "id": 1,
+    "tenantId": 2,
+    "firstName": "Jane",
+    "lastName": "Doe",
+    "title": "Head of Marketing"
+  }
+]

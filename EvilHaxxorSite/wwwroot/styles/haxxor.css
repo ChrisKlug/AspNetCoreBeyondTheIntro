@@ -1,0 +1,29 @@
+﻿body {
+    background-color: black;
+    color: lawngreen;
+    text-align: center;
+    padding-top: 100px;
+    background-image: url(../images/background.jpg);
+    background-attachment: fixed;
+    background-size:cover;
+}
+
+h1 {
+    font-size: 50px;
+}
+
+p {
+    font-size: 30px;
+    color: white;
+}
+
+.counter {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
+marquee {
+    margin-top: 50px;
+    width: 850px;
+}

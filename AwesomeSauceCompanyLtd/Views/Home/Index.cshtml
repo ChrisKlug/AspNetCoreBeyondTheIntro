@@ -1,0 +1,26 @@
+﻿@model AwesomeSauceCompanyLtd.Models.HomePageModel
+@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="row">
+    <div class="col-4 d-flex flex-column employee-card">
+        <img src="~/images/female.jpg" class="headshot align-self-center mb-3" />
+        <h2>@Model.User1.FirstName @Model.User1.LastName</h2>
+        <p>@Model.User1.Bio</p>
+        <a class="btn btn-secondary align-self-center mt-3" asp-controller="User" asp-action="Index" asp-route-userId="@Model.User1.Id" role="button">View details »</a>
+    </div>
+    <div class="col-4 d-flex flex-column employee-card">
+        <img src="~/images/female.jpg" class="headshot align-self-center mb-3" />
+        <h2>@Model.User2.FirstName @Model.User2.LastName</h2>
+        <p>@Model.User2.Bio</p>
+        <a class="btn btn-secondary align-self-center mt-3" asp-controller="User" asp-action="Index" asp-route-userId="@Model.User2.Id" role="button">View details »</a>
+    </div>
+    <div class="col-4 d-flex flex-column employee-card">
+        <img src="~/images/female.jpg" class="headshot align-self-center mb-3" />
+        <h2>@Model.User3.FirstName @Model.User3.LastName</h2>
+        <p>@Model.User3.Bio</p>
+        <a class="btn btn-secondary align-self-center mt-3" asp-controller="User" asp-action="Index" asp-route-userId="@Model.User3.Id" role="button">View details »</a>
+    </div>
+</div>
+

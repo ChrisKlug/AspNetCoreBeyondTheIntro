@@ -1,0 +1,12 @@
+﻿@model AwesomeSauceCompanyLtd.Services.Entities.User
+@{
+    ViewData["Title"] = Model.FirstName + " " + Model.LastName;
+}
+
+<div class="jumbotron d-flex flex-column">
+    <img src="~/images/female.jpg" class="align-self-center mb-3" />
+    <h1 class="align-self-center mb-3">@Model.FirstName @Model.LastName</h1>
+    <p class="lead">@Model.Bio</p>
+    <a class="btn btn-secondary align-self-center mt-3" asp-controller="Home" asp-action="Index" role="button">« Back</a>
+</div>
+

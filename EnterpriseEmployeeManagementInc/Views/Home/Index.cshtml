@@ -1,0 +1,29 @@
+﻿@model EnterpriseEmployeeManagementInc.Services.Entities.Employee[]
+@{
+    ViewData["Title"] = "Home";
+}
+
+    <div class="row">
+        @foreach (var employee in Model)
+        {
+            <div class=" col-3">
+                <div class="card">
+                    @if (string.IsNullOrEmpty(employee.Thumbnail))
+                    {
+                        <div class="img text-center"><a asp-controller="Employee" asp-action="UploadProfilePicture" asp-route-employeeId="@employee.Id">Add<br />Profile Picture</a></div>
+                    }
+                    else
+                    {
+                        <div class="img" style="@($"background-image: url(/images/employees/{employee.Thumbnail})")"></div>
+                    }
+                    <div class="card-body text-center">
+                        <h5>@employee.FirstName @employee.LastName</h5>
+                        <span>@employee.Title</span>
+                    </div>
+                </div>
+            </div>
+        }
+        <div class="col-3 text-center pt-5">
+            <a asp-controller="Employee" asp-action="AddEmployee" class="btn btn-outline-primary py-3 px-4">Add...</a>
+        </div>
+    </div>
