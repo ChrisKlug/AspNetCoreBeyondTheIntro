@@ -9,7 +9,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EnterpriseEmployeeManagemen
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EvilHaxxorSite", "EvilHaxxorSite\EvilHaxxorSite.csproj", "{BBB5AF82-8341-4DFC-8CAE-44DB911BB737}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RequestDiagnostics", "RequestDiagnostics\RequestDiagnostics.csproj", "{F9270FE5-5CF7-4790-9A31-442B410817E9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RequestDiagnostics", "RequestDiagnostics\RequestDiagnostics.csproj", "{F9270FE5-5CF7-4790-9A31-442B410817E9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B8EB8BC0-1043-4FE5-B066-FE6BB05C098E}"
+	ProjectSection(SolutionItems) = preProject
+		NuGet.config = NuGet.config
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
