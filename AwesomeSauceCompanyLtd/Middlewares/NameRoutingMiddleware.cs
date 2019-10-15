@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace AwesomeSauceCompanyLtd.Infrastructure
 {
-    public class NameRoutingMiddleware : IMiddleware
+    public class NameRoutingMiddleware: IMiddleware
     {
         private readonly IUsers _users;
 
@@ -20,7 +20,7 @@ namespace AwesomeSauceCompanyLtd.Infrastructure
             {
                 // Single segment path
                 var path = context.Request.Path.Value.Substring(1);
-                var user = await _users.WhereNameIs(path.Replace("-", " "));
+                var user = await _users.WithName(path.Replace("-", " "));
                 if (user != null)
                 {
                     context.Request.Path = "/users/" + user.Id;

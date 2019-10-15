@@ -22,7 +22,7 @@ namespace AwesomeSauceCompanyLtd.Services
             return Task.FromResult(_users.FirstOrDefault(x => x.Id == id));
         }
 
-        public Task<User> WhereNameIs(string name)
+        public Task<User> WithName(string name)
         {
             return Task.FromResult(_users.FirstOrDefault(x => (x.FirstName + " " + x.LastName).Equals(name, StringComparison.OrdinalIgnoreCase)));
         }

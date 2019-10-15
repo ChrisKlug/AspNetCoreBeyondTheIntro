@@ -3,7 +3,9 @@ using Microsoft.Extensions.Hosting;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.Processing;
 using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -33,6 +35,15 @@ namespace EnterpriseEmployeeManagementInc.Infrastructure
             _fsw.EnableRaisingEvents = true;
             return Task.CompletedTask;
         }
+
+        public Task StopAsync(CancellationToken cancellationToken)
+        {
+            _fsw.Created -= FileCreated;
+            _fsw.EnableRaisingEvents = false;
+            _fsw.Dispose();
+            return Task.CompletedTask;
+        }
+
 
         private void FileCreated(object sender, FileSystemEventArgs e)
         {
@@ -98,14 +109,6 @@ namespace EnterpriseEmployeeManagementInc.Infrastructure
                 // Ugly hack...
                 FileCreated(sender, e);
             }
-        }
-
-        public Task StopAsync(CancellationToken cancellationToken)
-        {
-            _fsw.Created -= FileCreated;
-            _fsw.EnableRaisingEvents = false;
-            _fsw.Dispose();
-            return Task.CompletedTask;
         }
     }
 }

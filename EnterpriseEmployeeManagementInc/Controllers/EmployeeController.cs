@@ -29,6 +29,7 @@ namespace EnterpriseEmployeeManagementInc.Controllers
         }
 
         [HttpPost("add")]
+        //[ValidateAntiForgeryToken]
         public async Task<IActionResult> AddEmployee(AddEmployeeModel model)
         {
             if (!ModelState.IsValid)
