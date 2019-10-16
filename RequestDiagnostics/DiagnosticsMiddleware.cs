@@ -37,6 +37,7 @@ namespace RequestDiagnostics
 
                 ctx.Response.ContentType = "text/plain";
                 await ctx.Response.WriteAsync(sb.ToString());
+                return;
             }
 
             await _next(ctx);
