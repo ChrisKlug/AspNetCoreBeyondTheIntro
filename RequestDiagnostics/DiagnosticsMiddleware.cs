@@ -25,11 +25,7 @@ namespace RequestDiagnostics
 
             var path = ctx.Request.Path;
 
-            if (path != "/diagnostics" || !_env.IsDevelopment())
-            {
-                await _next(ctx);
-            }
-            else
+            if (path == "/diagnostics" && _env.IsDevelopment())
             {
                 var sb = new StringBuilder();
 
@@ -42,6 +38,8 @@ namespace RequestDiagnostics
                 ctx.Response.ContentType = "text/plain";
                 await ctx.Response.WriteAsync(sb.ToString());
             }
+
+            await _next(ctx);
         }
     }
 }
