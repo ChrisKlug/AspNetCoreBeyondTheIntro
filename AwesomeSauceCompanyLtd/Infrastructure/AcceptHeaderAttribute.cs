@@ -14,11 +14,11 @@ namespace AwesomeSauceCompanyLtd.Infrastructure
             _acceptHeader = acceptHeader;
         }
 
-        public int Order { get; set; }
-
         public bool Accept(ActionConstraintContext context)
         {
             return context.RouteContext.HttpContext.Request.Headers["Accept"].Any(x => x.IndexOf(_acceptHeader) >= 0);
         }
+
+        public int Order { get; set; }
     }
 }

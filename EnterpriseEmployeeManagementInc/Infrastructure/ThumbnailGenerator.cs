@@ -3,9 +3,7 @@ using Microsoft.Extensions.Hosting;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.Processing;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -13,11 +11,11 @@ namespace EnterpriseEmployeeManagementInc.Infrastructure
 {
     public class ThumbnailGenerator : IHostedService
     {
-        private readonly Microsoft.AspNetCore.Hosting.IHostingEnvironment _hostingEnvironment;
+        private readonly Microsoft.AspNetCore.Hosting.IWebHostEnvironment _hostingEnvironment;
         private readonly IEmployees _employees;
         private FileSystemWatcher _fsw;
 
-        public ThumbnailGenerator(Microsoft.AspNetCore.Hosting.IHostingEnvironment hostingEnvironment, IEmployees employees)
+        public ThumbnailGenerator(Microsoft.AspNetCore.Hosting.IWebHostEnvironment hostingEnvironment, IEmployees employees)
         {
             _hostingEnvironment = hostingEnvironment;
             _employees = employees;
@@ -43,7 +41,6 @@ namespace EnterpriseEmployeeManagementInc.Infrastructure
             _fsw.Dispose();
             return Task.CompletedTask;
         }
-
 
         private void FileCreated(object sender, FileSystemEventArgs e)
         {

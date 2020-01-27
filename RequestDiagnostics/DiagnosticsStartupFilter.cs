@@ -6,13 +6,9 @@ namespace RequestDiagnostics
 {
     public class DiagnosticsStartupFilter : IStartupFilter
     {
-        public DiagnosticsStartupFilter()
-        {
-        }
-
         public Action<IApplicationBuilder> Configure(Action<IApplicationBuilder> next)
         {
-            Console.WriteLine("Adding generic diagnostics to system. Dagnostics available at /diagnostics");
+            Console.WriteLine("Adding generic diagnostics to system. Diagnostics available at /diagnostics");
 
             return app =>
             {

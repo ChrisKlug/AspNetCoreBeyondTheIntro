@@ -7,11 +7,6 @@ namespace RequestDiagnostics
 {
     public class DiagnosticsHostingStartup : IHostingStartup
     {
-        public DiagnosticsHostingStartup()
-        {
-
-        }
-
         public void Configure(IWebHostBuilder builder)
         {
             builder.ConfigureServices(services =>

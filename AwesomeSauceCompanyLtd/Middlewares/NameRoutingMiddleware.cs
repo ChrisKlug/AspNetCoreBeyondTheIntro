@@ -1,11 +1,10 @@
 ﻿using AwesomeSauceCompanyLtd.Services;
 using Microsoft.AspNetCore.Http;
-using System;
 using System.Threading.Tasks;
 
-namespace AwesomeSauceCompanyLtd.Infrastructure
+namespace AwesomeSauceCompanyLtd.Middlewares
 {
-    public class NameRoutingMiddleware: IMiddleware
+    public class NameRoutingMiddleware : IMiddleware
     {
         private readonly IUsers _users;
 
@@ -16,7 +15,7 @@ namespace AwesomeSauceCompanyLtd.Infrastructure
 
         public async Task InvokeAsync(HttpContext context, RequestDelegate next)
         {
-            if (context.Request.Path != "/" && context.Request.Path.Value.IndexOf('/', 1) < 0)
+            if (context.Request.Path.Value.Length > 1 && context.Request.Path.Value.IndexOf('/', 1) < 0)
             {
                 // Single segment path
                 var path = context.Request.Path.Value.Substring(1);

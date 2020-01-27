@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 
 namespace EnterpriseEmployeeManagementInc
 {
@@ -15,7 +16,7 @@ namespace EnterpriseEmployeeManagementInc
             services.AddMvc(options => {
                 options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute());
             })
-                .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+                .SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
 
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddCookie(options => {
@@ -30,7 +31,7 @@ namespace EnterpriseEmployeeManagementInc
             services.AddHostedService<ThumbnailGenerator>();
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -41,7 +42,14 @@ namespace EnterpriseEmployeeManagementInc
 
             app.UseAuthentication();
 
-            app.UseMvc();
+            app.UseRouting();
+
+            app.UseAuthorization();
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
         }
     }
 }

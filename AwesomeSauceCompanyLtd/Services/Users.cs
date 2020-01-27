@@ -12,7 +12,7 @@ namespace AwesomeSauceCompanyLtd.Services
     {
         private User[] _users;
 
-        public Users(IHostingEnvironment env)
+        public Users(IWebHostEnvironment env)
         {
             _users = JsonConvert.DeserializeObject<User[]>(File.ReadAllText(env.ContentRootFileProvider.GetFileInfo("Data/employees.json").PhysicalPath));
         }

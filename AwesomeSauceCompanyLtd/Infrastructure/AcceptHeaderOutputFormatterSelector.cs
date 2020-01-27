@@ -27,7 +27,7 @@ namespace AwesomeSauceCompanyLtd.Infrastructure
 
         public override IOutputFormatter SelectFormatter(OutputFormatterCanWriteContext context, IList<IOutputFormatter> formatters, MediaTypeCollection mediaTypes)
         {
-            if (context.HttpContext.Request.Headers["Accept"].First().IndexOf("application/vnd.") < 0)
+            if (!context.HttpContext.Request.Headers["Accept"].First().StartsWith("application/vnd."))
                 return _fallbackSelector.SelectFormatter(context, formatters, mediaTypes);
 
             if (formatters.Count == 0)
