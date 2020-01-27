@@ -12,7 +12,7 @@ namespace EnterpriseEmployeeManagementInc.Services
     {
         private InternalUser[] _users;
 
-        public Users(IHostingEnvironment env)
+        public Users(IWebHostEnvironment env)
         {
             _users = JsonConvert.DeserializeObject<InternalUser[]>(File.ReadAllText(env.ContentRootFileProvider.GetFileInfo("Data/users.json").PhysicalPath));
         }

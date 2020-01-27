@@ -14,9 +14,9 @@ namespace EnterpriseEmployeeManagementInc.Controllers
     public class EmployeeController : Controller
     {
         private readonly IEmployees _employees;
-        private readonly IHostingEnvironment _hostingEnvironment;
+        private readonly IWebHostEnvironment _hostingEnvironment;
 
-        public EmployeeController(IEmployees employees, IHostingEnvironment hostingEnvironment)
+        public EmployeeController(IEmployees employees, IWebHostEnvironment hostingEnvironment)
         {
             _employees = employees;
             _hostingEnvironment = hostingEnvironment;

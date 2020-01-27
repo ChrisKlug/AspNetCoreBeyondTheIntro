@@ -12,7 +12,7 @@ namespace EnterpriseEmployeeManagementInc.Services
     {
         private Employee[] _employees;
 
-        public Employees(IHostingEnvironment env)
+        public Employees(IWebHostEnvironment env)
         {
             _employees = JsonConvert.DeserializeObject<Employee[]>(File.ReadAllText(env.ContentRootFileProvider.GetFileInfo("Data/employees.json").PhysicalPath));
         }
