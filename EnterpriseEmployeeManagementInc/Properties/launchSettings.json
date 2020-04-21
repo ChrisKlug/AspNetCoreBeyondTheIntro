@@ -12,7 +12,7 @@
       "commandName": "IISExpress",
       "launchBrowser": true,
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
         //"ASPNETCORE_HOSTINGSTARTUPASSEMBLIES": "RequestDiagnostics",
         //"DOTNET_SHARED_STORE": "..\\RuntimeStore\\deployment\\store\\",
         //"DOTNET_ADDITIONAL_DEPS": "..\\RuntimeStore\\deployment\\additionalDeps\\"
