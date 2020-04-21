@@ -9,12 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EnterpriseEmployeeManagemen
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EvilHaxxorSite", "EvilHaxxorSite\EvilHaxxorSite.csproj", "{BBB5AF82-8341-4DFC-8CAE-44DB911BB737}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{35F7266E-5670-444B-938C-17F481BCB67B}"
-	ProjectSection(SolutionItems) = preProject
-		NuGet.Config = NuGet.Config
-	EndProjectSection
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RequestDiagnostics", "RequestDiagnostics\RequestDiagnostics.csproj", "{247CA974-ED09-405E-A548-51223ED5F7ED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RequestDiagnostics", "RequestDiagnostics\RequestDiagnostics.csproj", "{247CA974-ED09-405E-A548-51223ED5F7ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RuntimeStore", "RuntimeStore\RuntimeStore.csproj", "{524B2EFD-6E12-434D-B232-C000E5404617}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,6 +35,10 @@ Global
 		{247CA974-ED09-405E-A548-51223ED5F7ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{247CA974-ED09-405E-A548-51223ED5F7ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{247CA974-ED09-405E-A548-51223ED5F7ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{524B2EFD-6E12-434D-B232-C000E5404617}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{524B2EFD-6E12-434D-B232-C000E5404617}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{524B2EFD-6E12-434D-B232-C000E5404617}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{524B2EFD-6E12-434D-B232-C000E5404617}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
