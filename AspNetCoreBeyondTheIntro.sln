@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EvilHaxxorSite", "EvilHaxxo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RequestDiagnostics", "RequestDiagnostics\RequestDiagnostics.csproj", "{247CA974-ED09-405E-A548-51223ED5F7ED}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RuntimeStore", "RuntimeStore\RuntimeStore.csproj", "{B136D9F2-861A-467E-BEF2-4A768D51EE71}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{247CA974-ED09-405E-A548-51223ED5F7ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{247CA974-ED09-405E-A548-51223ED5F7ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{247CA974-ED09-405E-A548-51223ED5F7ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B136D9F2-861A-467E-BEF2-4A768D51EE71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B136D9F2-861A-467E-BEF2-4A768D51EE71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B136D9F2-861A-467E-BEF2-4A768D51EE71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B136D9F2-861A-467E-BEF2-4A768D51EE71}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

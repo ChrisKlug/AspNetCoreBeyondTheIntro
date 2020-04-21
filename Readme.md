@@ -82,10 +82,12 @@ __Note:__ The RequestDiagnostics project also contains a `Program.cs`, which is 
 
 To extend the EnterpriseEmployeeManagementInc web application using the `DiagnosticsHostingStartup` class, we need to create a _runtime store_, and an additional deps.json file (located in the right place...). To do this we need to do the following.
 
-First we need to generate a NuGet package from the RequestDiagnostics project. This can easily be done by running the following command in the RequestDiagnostics folder
+First we need to generate a NuGet package from the RequestDiagnostics project. This can easily be done by running the following command from the RuntimeStore folder
+
+__Note:__ All the commands expect the working directory to be ./RuntimeStore/
 
 ```bash
-dotnet pack .\RequestDiagnostics.csproj -o deployment/packages
+dotnet pack ../RequestDiagnostics/RequestDiagnostics.csproj -o ../RuntimeStore/deployment/packages
 ```
 
 Next, we need to create something called a _runtime store_. This is a folder containing NuGet packages that can be stored on a machine separate from an application, and then be used by an application without it having to bring the NuGet package on its own. A bit like a Global Assembly Cache from .NET Framrework.
@@ -93,20 +95,20 @@ Next, we need to create something called a _runtime store_. This is a folder con
 To create a runtime store, we run the following command
 
 ```bash
-dotnet store --manifest .\manifest.csproj --runtime win10-x64 --output ./deployment/store --skip-optimization
+dotnet store --manifest ./RuntimeStore.csproj --runtime win10-x64 --output ./deployment/store --skip-optimization
 ```
 
-This will create a store based on the NuGet packages referenced in the `manifest.cproj` file. Basically, it creates a structured folder containing all the NuGet packages required by the references in the defined project file.
+This will create a store based on the NuGet packages referenced in the `RuntimeStore.cproj` file. Basically, it creates a structured folder containing all the NuGet packages required by the references in the defined project file.
 
 Once we have our store, this can be used by modifying your applications `.deps.json` file. However, in this case, we cant to extend the application without it knowing about it. So we need to extend the applications dependencies without it knowing about it. This can be done by something called `additionalDeps`.
 
 To add additional dependencies like this, we need to create a `.deps.json` file. The easiest way to do this is to publish a Console app, which is why the `manifest.csproj` is defined as a Console app, and why there is a `Program.cs` file in the project. So to get a .deps.json file, you can run
 
 ```bash
-dotnet publish manifest.csproj -o ./deployment/temp
+dotnet publish RuntimeStore.csproj -o ./deployment/temp
 ```
 
-The generated `./deployment/temp/manifest.deps.json` contains a reference to the project file, which it shouldn't in this case. So open up that file, and remove the reference to `manifest/1.0.0` in the `targets/.NETCoreApp,Version=v3.0` and `libraries` configurations
+The generated `./deployment/temp/RuntimeStore.deps.json` contains a reference to the project file, which it shouldn't in this case. So open up that file, and remove the reference to `RuntimeStore/1.0.0` in the `targets/.NETCoreApp,Version=v3.0` and `libraries` configurations
 
 ```
 {
@@ -131,7 +133,7 @@ The generated `./deployment/temp/manifest.deps.json` contains a reference to the
   },
   "libraries": {
     // And from here
-    "manifest/1.0.0": {
+    "RuntimeStore/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -140,13 +142,12 @@ The generated `./deployment/temp/manifest.deps.json` contains a reference to the
   }
 ```
 
-Next, that dependencies file needs to be placed in a very specific folder structure that looks like this `{ADD.DEPS PATH}/shared/{FRAMEWORK NAME}/{FRAMEWORK VERSION}/{ENHANCEMENT ASSEMBLY NAME}.deps.json`, which in our case means `{ADD.DEPS PATH}/shared/Microsoft.AspNetCore.App/3.1.0/RequestDiagnostics.deps.json` as we want to extend any application using `Microsoft.AspNetCore.App` version `3.1.*` with the assembly `RequestDiagnostics`.
+Next, that dependencies file needs to be placed in a very specific folder structure that looks like this `{ADD.DEPS PATH}/shared/{SHARED FRAMEWORK NAME}/{SHARED FRAMEWORK VERSION}/{ENHANCEMENT ASSEMBLY NAME}.deps.json`, which in our case means `{ADD.DEPS PATH}/shared/Microsoft.AspNetCore.App/3.1.0/RequestDiagnostics.deps.json` as we want to extend any application using `Microsoft.AspNetCore.App` version `3.1.*` with the assembly `RequestDiagnostics`.
 
 The easiest way to set this up is by running 
 
 ```bash
-	xcopy .\deployment\temp\manifest.deps.json \
-    .\deployment\additionalDeps\shared\Microsoft.AspNetCore.App\3.1.0\RequestDiagnostics.deps.json* /y
+xcopy .\deployment\temp\RuntimeStore.deps.json .\deployment\additionalDeps\shared\Microsoft.AspNetCore.App\3.1.0\RequestDiagnostics.deps.json* /y
 ```
 
 The final part to do, is to set up the environment variables that are needed to get the application to load this assembly. For this demo, the easiest way is to just set up the environment variables in the `launchSettings.json` file in the `Properties` folder of the EnterpriseEmployeeManagementInc project.
@@ -159,7 +160,7 @@ The environemnt variables needed are
 
 `DOTNET_ADDITIONAL_DEPS` which contains the path to the folder containing the additional deps we want to load.
 
-These are already available in the `launchSettings.json`. You just need to comment it back in.
+These are already available in the `launchSettings.json`. You just need to comment them back in.
 
 After this has been done, you should be able to start the EnterpriseEmployeeManagementInc project and have the request diagnostics stuff added dynamically. You can check the functionality by browsing to https://localhost:44367/diagnostics.
 

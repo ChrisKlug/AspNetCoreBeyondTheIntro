@@ -43,4 +43,4 @@ artifacts/
 node_modules/
 
 # Custom
-RequestDiagnostics/deployment
+RuntimeStore/deployment
