@@ -13,7 +13,9 @@
       "launchBrowser": true,
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
-        "ASPNETCORE_HOSTINGSTARTUPASSEMBLIES": "RequestDiagnostics"
+        //"ASPNETCORE_HOSTINGSTARTUPASSEMBLIES": "RequestDiagnostics",
+        //"DOTNET_SHARED_STORE": "..\\RequestDiagnostics\\deployment\\store\\",
+        //"DOTNET_ADDITIONAL_DEPS": "..\\RequestDiagnostics\\deployment\\additionalDeps\\"
       }
     },
     "EnterpriseEmployeeManagementInc": {
@@ -21,7 +23,9 @@
       "launchBrowser": true,
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
-        "ASPNETCORE_HOSTINGSTARTUPASSEMBLIES": "RequestDiagnostics"
+        //"ASPNETCORE_HOSTINGSTARTUPASSEMBLIES": "RequestDiagnostics",
+        //"DOTNET_SHARED_STORE": "..\\RequestDiagnostics\\deployment\\store\\",
+        //"DOTNET_ADDITIONAL_DEPS": "..\\RequestDiagnostics\\deployment\\additionalDeps\\"
       },
       "applicationUrl": "https://localhost:5001;http://localhost:5000"
     }

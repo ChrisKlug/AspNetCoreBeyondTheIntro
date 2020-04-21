@@ -7,7 +7,6 @@
   <ItemGroup>
     <PackageReference Include="BCrypt.Net-Core" Version="1.6.0" />
     <PackageReference Include="Newtonsoft.json" Version="12.0.3" />
-    <PackageReference Include="RequestDiagnostics" Version="1.0.0" />
     <PackageReference Include="SixLabors.ImageSharp" Version="1.0.0-beta0007" />
   </ItemGroup>
 

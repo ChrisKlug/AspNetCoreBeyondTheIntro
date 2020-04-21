@@ -41,3 +41,6 @@ artifacts/
 
 # Node.js Tools for Visual Studio
 node_modules/
+
+# Custom
+RequestDiagnostics/deployment
