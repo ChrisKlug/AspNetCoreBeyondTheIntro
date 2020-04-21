@@ -49,7 +49,7 @@ public ActionResult<BasicUser> GetBasicUser(User user) { ... }
 
 This implementation just assumes that there will be a value called `userId` passed along in the request. It then maps that to the actual user for us.
 
-__Note:__ Actually is expects the passed in value to be the name of the parameter (_user_ in the above action) postfixed with "Id". SO that ends up with `userId` for this specific example, but it really depends on the parameter name.
+__Note:__ Actually is expects the passed in value to be the name of the parameter (_user_ in the above action) postfixed with "Id". So that ends up with `userId` for this specific example, but it really depends on the parameter name.
 
 ### Antiforgery Tokens
 
