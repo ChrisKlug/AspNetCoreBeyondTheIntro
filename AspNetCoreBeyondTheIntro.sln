@@ -7,8 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AwesomeSauceCompanyLtd", "A
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EnterpriseEmployeeManagementInc", "EnterpriseEmployeeManagementInc\EnterpriseEmployeeManagementInc.csproj", "{10D4B80A-B606-4618-AC4F-0C5A8192DE47}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EvilHaxxorSite", "EvilHaxxorSite\EvilHaxxorSite.csproj", "{BBB5AF82-8341-4DFC-8CAE-44DB911BB737}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RequestDiagnostics", "RequestDiagnostics\RequestDiagnostics.csproj", "{247CA974-ED09-405E-A548-51223ED5F7ED}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RuntimeStore", "RuntimeStore\RuntimeStore.csproj", "{524B2EFD-6E12-434D-B232-C000E5404617}"
@@ -27,10 +25,6 @@ Global
 		{10D4B80A-B606-4618-AC4F-0C5A8192DE47}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{10D4B80A-B606-4618-AC4F-0C5A8192DE47}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{10D4B80A-B606-4618-AC4F-0C5A8192DE47}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BBB5AF82-8341-4DFC-8CAE-44DB911BB737}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BBB5AF82-8341-4DFC-8CAE-44DB911BB737}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BBB5AF82-8341-4DFC-8CAE-44DB911BB737}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BBB5AF82-8341-4DFC-8CAE-44DB911BB737}.Release|Any CPU.Build.0 = Release|Any CPU
 		{247CA974-ED09-405E-A548-51223ED5F7ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{247CA974-ED09-405E-A548-51223ED5F7ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{247CA974-ED09-405E-A548-51223ED5F7ED}.Release|Any CPU.ActiveCfg = Release|Any CPU

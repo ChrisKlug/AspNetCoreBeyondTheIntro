@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <!--<TargetManifestFiles>C:\runtime-store\x64\net5.0\artifact.xml</TargetManifestFiles>-->
   </PropertyGroup>
 
   <ItemGroup>
