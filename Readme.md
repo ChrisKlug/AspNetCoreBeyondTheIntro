@@ -51,23 +51,6 @@ This implementation just assumes that there will be a value called `userId` pass
 
 __Note:__ Actually is expects the passed in value to be the name of the parameter (_user_ in the above action) postfixed with "Id". So that ends up with `userId` for this specific example, but it really depends on the parameter name.
 
-### Antiforgery Tokens
-
-To demo the use of antiforgery tokens, you need to use a browser other than Chrome. As Chrome has changed its cookie handling, it will not enable us to do simple cross sit request forgery, as authentication cookies are not sent when requesting a site from another domain. 
-
-To demo antiforgery token usage, start by removing the antiforgery token attribute in the global MVC filters collection. This is done by commenting out line 18 in EnterpriseEmployeeManagementInc/Startup.cs
-
-```csharp
-services.AddControllersWithViews(options =>
-{
-    // options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute());
-}).SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
-```
-
-Next, start the EnterpriseEmployeeManagementInc application and sign in as Grace (see above comment about logging in). Once you are logged in, start the EvilHaxxorSite. As soon as the EvilHaxxorSite is opened in your browser, it will send a POST request to the EnterpriseEmployeeManagementInc application and add a new user.
-
-To thwart this attack, stop the EnterpriseEmployeeManagementInc and put the `AutoValidateAntiforgeryTokenAttribute` back into the global filters list. Restart, the application and try reloading the EvilHaxxorSite. As you can see, antiforgery tokens are now being used, and the evil haxxor cannot add users using cross site request forgery.
-
 ### Background tasks
 
 Background tasks in ASP.NET Core allows us to run code asynchrounously in the background in our application. This is done by registering classes that implement IHostedService in the DI container.
@@ -90,7 +73,7 @@ __Note:__ All the commands expect the working directory to be ./RuntimeStore/
 dotnet pack ../RequestDiagnostics/RequestDiagnostics.csproj -o ../RuntimeStore/deployment/packages
 ```
 
-Next, we need to create something called a _runtime store_. This is a folder containing NuGet packages that can be stored on a machine separate from an application, and then be used by an application without it having to bring the NuGet package on its own. A bit like a Global Assembly Cache from .NET Framrework.
+Next, we need to create something called a _runtime store_. This is a folder containing assemblies that can be stored on a machine separate from an application, and then be used by an application without it having to bring the assembly on its own. A bit like a Global Assembly Cache from .NET Framrework.
 
 To create a runtime store, we run the following command
 
@@ -142,12 +125,12 @@ The generated `./deployment/temp/RuntimeStore.deps.json` contains a reference to
   }
 ```
 
-Next, that dependencies file needs to be placed in a very specific folder structure that looks like this `{ADD.DEPS PATH}/shared/{SHARED FRAMEWORK NAME}/{SHARED FRAMEWORK VERSION}/{ENHANCEMENT ASSEMBLY NAME}.deps.json`, which in our case means `{ADD.DEPS PATH}/shared/Microsoft.AspNetCore.App/3.1.0/RequestDiagnostics.deps.json` as we want to extend any application using `Microsoft.AspNetCore.App` version `3.1.*` with the assembly `RequestDiagnostics`.
+Next, that dependencies file needs to be placed in a very specific folder structure that looks like this `{ADD.DEPS PATH}/shared/{SHARED FRAMEWORK NAME}/{SHARED FRAMEWORK VERSION}/{ENHANCEMENT ASSEMBLY NAME}.deps.json`, which in our case means `{ADD.DEPS PATH}/shared/Microsoft.AspNetCore.App/5.0.0/RequestDiagnostics.deps.json` as we want to extend any application using `Microsoft.AspNetCore.App` version `5.0.*` with the assembly `RequestDiagnostics`.
 
 The easiest way to set this up is by running 
 
 ```bash
-xcopy .\deployment\temp\RuntimeStore.deps.json .\deployment\additionalDeps\shared\Microsoft.AspNetCore.App\3.1.0\RequestDiagnostics.deps.json* /y
+xcopy .\deployment\temp\RuntimeStore.deps.json .\deployment\additionalDeps\shared\Microsoft.AspNetCore.App\5.0.0\RequestDiagnostics.deps.json* /y
 ```
 
 The final part to do, is to set up the environment variables that are needed to get the application to load this assembly. For this demo, the easiest way is to just set up the environment variables in the `launchSettings.json` file in the `Properties` folder of the EnterpriseEmployeeManagementInc project.
