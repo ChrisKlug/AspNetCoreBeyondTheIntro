@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
+using RequestDiagnostics;
 
-[assembly: HostingStartup(typeof(RequestDiagnostics.DiagnosticsHostingStartup))]
+[assembly: HostingStartup(typeof(DiagnosticsHostingStartup))]
 
 namespace RequestDiagnostics
 {

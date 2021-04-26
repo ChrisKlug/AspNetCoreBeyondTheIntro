@@ -19,7 +19,7 @@ namespace AwesomeSauceCompanyLtd
                 options.OutputFormatters.Add(new XmlSerializerOutputFormatter());
                 options.ModelBinderProviders.Insert(0, new UserModelBinderProvider());
             })
-            .SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
+                .SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
 
             services.AddSingleton<OutputFormatterSelector, AcceptHeaderOutputFormatterSelector>();
 
@@ -28,7 +28,7 @@ namespace AwesomeSauceCompanyLtd
             services.AddTransient<NameRoutingMiddleware>();
         }
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IUsers users)
         {
             if (env.IsDevelopment())
             {
@@ -36,6 +36,7 @@ namespace AwesomeSauceCompanyLtd
             }
 
             app.UseStaticFiles();
+
 
             app.UseNameRouting();
 

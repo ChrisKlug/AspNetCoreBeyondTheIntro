@@ -12,6 +12,7 @@ namespace AwesomeSauceCompanyLtd.Infrastructure
 {
     public class AcceptHeaderOutputFormatterSelector : OutputFormatterSelector
     {
+
         private DefaultOutputFormatterSelector _fallbackSelector;
         private List<IOutputFormatter> _formatters;
         private IDictionary<string, string> _contentTypeMap = new Dictionary<string, string> {

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Hosting;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.IO;
@@ -16,7 +17,7 @@ namespace RequestDiagnostics
         const string LogName = "diagnostics.log";
         private List<string> _entries;
 
-        public DiagnosticsLog(IHostingEnvironment env, IApplicationLifetime applicationLifetime)
+        public DiagnosticsLog(IWebHostEnvironment env, IHostApplicationLifetime applicationLifetime)
         {
             EnsureEntries(env);
 
@@ -37,7 +38,7 @@ namespace RequestDiagnostics
             return _entries.ToArray();
         }
 
-        private void EnsureEntries(IHostingEnvironment env)
+        private void EnsureEntries(IWebHostEnvironment env)
         {
             var file = env.ContentRootFileProvider.GetFileInfo(LogName);
             if (!file.Exists)

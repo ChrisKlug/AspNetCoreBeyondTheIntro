@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Hosting;
 using System;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,10 +10,10 @@ namespace RequestDiagnostics
     public class DiagnosticMiddleware
     {
         private readonly RequestDelegate _next;
-        private readonly IHostingEnvironment _env;
+        private readonly IWebHostEnvironment _env;
         private readonly IDiagnosticsLog _log;
 
-        public DiagnosticMiddleware(RequestDelegate next, IHostingEnvironment env, IDiagnosticsLog log)
+        public DiagnosticMiddleware(RequestDelegate next, IWebHostEnvironment env, IDiagnosticsLog log)
         {
             _next = next;
             _env = env;

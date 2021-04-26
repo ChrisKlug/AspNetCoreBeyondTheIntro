@@ -13,17 +13,13 @@ namespace EnterpriseEmployeeManagementInc
     {
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews(options =>
-            {
-                options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute());
-            }).SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
+            services.AddControllersWithViews()
+                .SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
 
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddCookie(options => {
                     options.LoginPath = "/auth/login";
                 });
-
-            services.AddHttpContextAccessor();
 
             services.AddSingleton<IUsers, Users>();
             services.AddSingleton<IEmployees, Employees>();

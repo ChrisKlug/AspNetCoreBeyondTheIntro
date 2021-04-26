@@ -35,15 +35,14 @@ namespace AwesomeSauceCompanyLtd.Infrastructure
                 return;
             }
 
-            if (int.TryParse(userIdValue, out var userId))
+            if (!int.TryParse(userIdValue, out var userId))
             {
-                var user = await _users.WhereIdIs(userId);
-                bindingContext.Result = ModelBindingResult.Success(user);
+                bindingContext.ModelState.TryAddModelError(key, "User Id must be a number");
                 return;
             }
 
-            bindingContext.ModelState.TryAddModelError(key, "User Id must be a number");
-
+            var user = await _users.WhereIdIs(userId);
+            bindingContext.Result = ModelBindingResult.Success(user);
         }
     }
 }

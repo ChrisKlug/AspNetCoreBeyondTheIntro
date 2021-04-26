@@ -1,15 +1,18 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net5.0</TargetFramework>
     <RestoreSources>
       $(RestoreSources);
       https://api.nuget.org/v3/index.json;
-      deployment\packages
+      ../RequestDiagnostics/bin/Debug
     </RestoreSources>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="BCrypt.Net-Core" Version="1.6.0" />
+    <PackageReference Include="Newtonsoft.json" Version="13.0.1" />
     <PackageReference Include="RequestDiagnostics" Version="1.0.0-*" />
+    <PackageReference Include="SixLabors.ImageSharp" Version="1.0.3" />
   </ItemGroup>
 
 </Project>

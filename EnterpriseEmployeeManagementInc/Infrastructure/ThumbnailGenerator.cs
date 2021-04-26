@@ -1,9 +1,12 @@
 ﻿using EnterpriseEmployeeManagementInc.Services;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.Processing;
 using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -11,11 +14,11 @@ namespace EnterpriseEmployeeManagementInc.Infrastructure
 {
     public class ThumbnailGenerator : IHostedService
     {
-        private readonly Microsoft.AspNetCore.Hosting.IWebHostEnvironment _hostingEnvironment;
+        private readonly IWebHostEnvironment _hostingEnvironment;
         private readonly IEmployees _employees;
         private FileSystemWatcher _fsw;
 
-        public ThumbnailGenerator(Microsoft.AspNetCore.Hosting.IWebHostEnvironment hostingEnvironment, IEmployees employees)
+        public ThumbnailGenerator(IWebHostEnvironment hostingEnvironment, IEmployees employees)
         {
             _hostingEnvironment = hostingEnvironment;
             _employees = employees;
@@ -83,7 +86,7 @@ namespace EnterpriseEmployeeManagementInc.Infrastructure
                          .Resize(new ResizeOptions
                          {
                              Mode = ResizeMode.Max,
-                             Size = new SixLabors.Primitives.Size(150, 150)
+                             Size = new Size(150, 150)
                          }));
 
 

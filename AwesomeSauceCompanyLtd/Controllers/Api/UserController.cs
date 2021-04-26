@@ -3,6 +3,7 @@ using AwesomeSauceCompanyLtd.Infrastructure;
 using AwesomeSauceCompanyLtd.Services;
 using AwesomeSauceCompanyLtd.Services.Entities;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace AwesomeSauceCompanyLtd.Controllers.Api
 {
@@ -27,7 +28,6 @@ namespace AwesomeSauceCompanyLtd.Controllers.Api
 
             return Ok(user);
         }
-
 
         [HttpGet("{userId}")]
         [AcceptHeader("application/vnd.user")]
