@@ -25,6 +25,8 @@ namespace EnterpriseEmployeeManagementInc
             services.AddSingleton<IEmployees, Employees>();
 
             services.AddHostedService<ThumbnailGenerator>();
+
+            services.AddHttpContextAccessor();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
