@@ -26,7 +26,7 @@ namespace RequestDiagnostics
 
             var path = ctx.Request.Path;
 
-            if (path == "/diagnostics" && _env.IsDevelopment())
+            if (path == "/diagnostics")
             {
                 var sb = new StringBuilder();
 
