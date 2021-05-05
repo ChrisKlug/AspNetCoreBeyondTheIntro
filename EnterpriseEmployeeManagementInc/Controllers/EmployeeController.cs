@@ -36,7 +36,7 @@ namespace EnterpriseEmployeeManagementInc.Controllers
                 return View(model);
             }
 
-            await _employees.Add(User.TenantId(), model.FirstName, model.LastName, model.Title);
+            await _employees.Add(model.FirstName, model.LastName, model.Title);
 
             return RedirectToAction("Index", "Home");
         }
@@ -49,7 +49,7 @@ namespace EnterpriseEmployeeManagementInc.Controllers
                 return BadRequest();
             }
 
-            var employee = await _employees.WithId(User.TenantId(), employeeId);
+            var employee = await _employees.WithId(employeeId);
             if (employee == null)
             {
                 return NotFound();
@@ -66,7 +66,7 @@ namespace EnterpriseEmployeeManagementInc.Controllers
                 return RedirectToAction("Index", "Home");
             }
 
-            var employee = await _employees.WithId(User.TenantId(), employeeId);
+            var employee = await _employees.WithId(employeeId);
 
             var fileName = $"{employee.TenantId}-{employee.Id}-{employee.FirstName}-{employee.LastName}" + Path.GetExtension(picture.FileName);
             var file = new FileInfo(Path.Combine(_hostingEnvironment.WebRootPath, "images\\employees", fileName));
