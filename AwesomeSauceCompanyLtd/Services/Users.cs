@@ -17,6 +17,8 @@ namespace AwesomeSauceCompanyLtd.Services
             _users = JsonConvert.DeserializeObject<User[]>(File.ReadAllText(env.ContentRootFileProvider.GetFileInfo("Data/employees.json").PhysicalPath));
         }
 
+        public Task<User[]> All() => Task.FromResult(_users);
+
         public Task<User> WhereIdIs(int id)
         {
             return Task.FromResult(_users.FirstOrDefault(x => x.Id == id));
