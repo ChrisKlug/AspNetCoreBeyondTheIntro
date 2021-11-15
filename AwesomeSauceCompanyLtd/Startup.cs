@@ -28,7 +28,7 @@ namespace AwesomeSauceCompanyLtd
             services.AddTransient<NameRoutingMiddleware>();
         }
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IUsers users)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
