@@ -16,10 +16,7 @@ namespace AwesomeSauceCompanyLtd.Infrastructure
 
         public async Task BindModelAsync(ModelBindingContext bindingContext)
         {
-            if (bindingContext == null)
-            {
-                throw new ArgumentNullException(nameof(bindingContext));
-            }
+            _ = bindingContext ?? throw new ArgumentNullException(nameof(bindingContext));
 
             var key = bindingContext.ModelMetadata.Name + "Id";
 

@@ -7,5 +7,6 @@ namespace AwesomeSauceCompanyLtd.Services
     {
         Task<User> WhereIdIs(int id);
         Task<User> WithName(string name);
+        Task<User[]> All();
     }
 }

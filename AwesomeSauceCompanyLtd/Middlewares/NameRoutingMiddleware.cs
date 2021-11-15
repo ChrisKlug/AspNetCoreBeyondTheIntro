@@ -5,29 +5,33 @@ using System.Threading.Tasks;
 
 namespace AwesomeSauceCompanyLtd.Middlewares
 {
-    public class NameRoutingMiddleware : IMiddleware
+    public class NameRoutingMiddleware
     {
-        private readonly IUsers _users;
+        private readonly RequestDelegate next;
+        private readonly IUsers users;
 
-        public NameRoutingMiddleware(IUsers users)
+        public NameRoutingMiddleware(RequestDelegate next, IUsers users)
         {
-            _users = users;
+            this.next = next;
+            this.users = users;
         }
 
-        public async Task InvokeAsync(HttpContext context, RequestDelegate next)
+        public async Task InvokeAsync(HttpContext context)
         {
-            if (context.Request.Path.Value.Length > 1 && context.Request.Path.Value.IndexOf('/', 1) < 0)
+            var path = context.Request.Path.Value;
+            if (path.Length > 1 && path.IndexOf('/', 1) < 0)
             {
                 // Single segment path
-                var path = context.Request.Path.Value.Substring(1);
-                var user = await _users.WithName(path.Replace("-", " "));
+                var user = await users.WithName(path.Substring(1).Replace("-", " "));
                 if (user != null)
                 {
                     context.Request.Path = "/users/" + user.Id;
                 }
-
             }
+
             await next(context);
+
+            context.Request.Path = path;
         }
     }
 }

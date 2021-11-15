@@ -16,7 +16,7 @@ namespace AwesomeSauceCompanyLtd.Infrastructure
 
         public bool Accept(ActionConstraintContext context)
         {
-            return context.RouteContext.HttpContext.Request.Headers["Accept"].Any(x => x.IndexOf(_acceptHeader) >= 0);
+            return context.RouteContext.HttpContext.Request.Headers["Accept"].Any(x => x.StartsWith(_acceptHeader));
         }
 
         public int Order { get; set; }

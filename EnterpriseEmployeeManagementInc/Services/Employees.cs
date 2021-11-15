@@ -16,7 +16,6 @@ namespace EnterpriseEmployeeManagementInc.Services
 
         public Employees(IWebHostEnvironment env, IHttpContextAccessor httpContextAccessor)
         {
-            _httpContextAccessor = httpContextAccessor;
             _employees = JsonConvert.DeserializeObject<Employee[]>(File.ReadAllText(env.ContentRootFileProvider.GetFileInfo("Data/employees.json").PhysicalPath));
             _httpContextAccessor = httpContextAccessor;
         }
@@ -28,12 +27,12 @@ namespace EnterpriseEmployeeManagementInc.Services
 
         public Task<Employee> WithId(int employeeId)
         {
-            return Task.FromResult(_employees.FirstOrDefault(x => x.TenantId == _httpContextAccessor.HttpContext.User.TenantId() && x.Id == employeeId));
+            return WithId(_httpContextAccessor.HttpContext.User.TenantId(), employeeId);
         }
 
         public Task<Employee> WithId(int tenantId, int employeeId)
         {
-            return Task.FromResult(_employees.FirstOrDefault(x => x.TenantId == tenantId && x.Id == employeeId));
+            return Task.FromResult(_employees.FirstOrDefault(x => x.TenantId == _httpContextAccessor.HttpContext.User.TenantId() && x.Id == employeeId));
         }
 
         public Task<Employee> Add(string firstName, string lastName, string title)

@@ -9,10 +9,7 @@ namespace AwesomeSauceCompanyLtd.Infrastructure
     {
         public IModelBinder GetBinder(ModelBinderProviderContext context)
         {
-            if (context == null)
-            {
-                throw new ArgumentNullException(nameof(context));
-            }
+            _ = context ?? throw new ArgumentNullException(nameof(context));
 
             if (context.Metadata.ModelType == typeof(User))
             {
