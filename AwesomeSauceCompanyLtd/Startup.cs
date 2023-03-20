@@ -1,7 +1,6 @@
 ﻿using AwesomeSauceCompanyLtd.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -22,8 +21,7 @@ namespace AwesomeSauceCompanyLtd
             services.AddControllersWithViews(options => {
                 options.OutputFormatters.Add(new XmlSerializerOutputFormatter());
                 options.ModelBinderProviders.Insert(0, new UserModelBinderProvider());
-            })
-                .SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
+            });
 
             services.AddSingleton<OutputFormatterSelector, AcceptHeaderOutputFormatterSelector>();
 
