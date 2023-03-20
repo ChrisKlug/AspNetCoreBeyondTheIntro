@@ -12,8 +12,7 @@ namespace EnterpriseEmployeeManagementInc
     {
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews()
-                .SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
+            services.AddControllersWithViews();
 
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddCookie(options => {

@@ -11,8 +11,7 @@ namespace AwesomeSauceCompanyLtd
     {
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews()
-                .SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
+            services.AddControllersWithViews();
 
             services.AddSingleton<IUsers, Users>();
         }

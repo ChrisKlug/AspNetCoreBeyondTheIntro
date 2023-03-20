@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net7.0</TargetFramework>
     <!--<TargetManifestFiles>C:\runtime-store\x64\net5.0\artifact.xml</TargetManifestFiles>-->
   </PropertyGroup>
 
